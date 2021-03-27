@@ -1,0 +1,19 @@
+
+.hide
+{
+    display: none;
+}
+
+li {
+    width: 100px;
+    margin: 0.5rem 0.2rem;
+    border-style: solid;
+    list-style: none;
+    display:inline-flexbox;
+    cursor:context-menu;
+    
+}
+
+li:hover{
+    color: blueviolet;
+}
