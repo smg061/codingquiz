@@ -8,21 +8,14 @@ var timerElement = document.querySelector("#time");
 var questionNum = 0;
 var timer;
 var seconds;
+var score;
 var questions = [question1, question2, question3];
-
-
-
-
 function main()
 { 
     hideElements(startButtonEl);
     showElements(questionEl)
     displayQuestion();
     startTimer();
-
-
-
-
 }
 
 
@@ -71,29 +64,70 @@ function showNextQuestion()
 }
 
 
-function displayEndScreen(){
+function displayEndScreen()
+{
+    if (seconds>0)
+    {
+        score = seconds;
+    }
+    document.getElementById("final-score").textContent = score;
     hideElements(questionEl);
     showElements(endScreenEl);
-    
+    seconds = 1;
+ 
 }
 
 function startTimer() {
     seconds = 300;
     timer = setInterval(()=>
-    {
+    {       
+         seconds--
         timerElement.textContent = seconds;
-        seconds--
-        if (seconds == 0)
+        if (seconds <= 0)
         {
             clearInterval(timer);
             displayEndScreen();
-
         }
     }, 1000)
 
-    timer;
+    
   };
 
+function handleFormSubmit(event) {
+    event.preventDefault();
+    var nameInput = document.querySelector("#initials").value;
+    var scoreInput = score;
+    var scoreToStore = 
+    {
+        initials: nameInput,
+        score: score
+    }
+    if (scores === null)
+    {
+        scores = [];
+    }
+    scores.push(scoreToStore);
+    storeScores();    
+
+  };
+
+
+  function storeScores()
+  {
+    localStorage.setItem("scores", JSON.stringify(scores));
+
+  }
+
+  function loadScores()
+  {
+      var loadedScores = JSON.parse(localStorage.getItem("scores"));
+      if (loadScores !== null) 
+      {
+          scores = loadedScores;
+      }
+      
+
+  }
 
 
 startButtonEl.addEventListener("click", main);
@@ -109,23 +143,29 @@ questionEl.addEventListener("click", (event)=>
 
             if (element.textContent == questions[questionNum].correctAnswer) 
             {
+                
                 console.log("correct answer");
             }
             else 
             {
                 console.log("bzzt wrongo");
-                seconds -= 100;
+                seconds -= 10;
             }
 
             showNextQuestion();
         }
 
-        else {
+        else 
+        {
             displayEndScreen();
+
         }
+
 
     }
 
 })
 
+document.querySelector("#submit").addEventListener("click", handleFormSubmit)
 
+loadScores();
