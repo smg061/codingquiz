@@ -9,8 +9,11 @@ This web app shifts and changes through the user's interaction. After clicking t
 
 ![img](https://raw.githubusercontent.com/smg061/codingquiz/main/assets/codingquiz_feedback.jpg)
 
+
 ### Timer
 When the start button is pressed, a timer starts counting down to the end of the quiz. After each wrong answer, -10 seconds ge subtracted from the remaining time.
+
+
 
 
 ### High Score storage and retrieval
@@ -23,5 +26,9 @@ Through local storage, scores and the user's initials are recorded and displayed
 ## Final Look
 
 ![!img](https://github.com/smg061/codingquiz/blob/main/assets/codingquiz_demo1.jpg)
+
+
 ![!img](https://github.com/smg061/codingquiz/blob/main/assets/codingquiz_demo1.jpg)
+
+
 ![!img](https://github.com/smg061/codingquiz/blob/main/assets/codingquiz_demo3.jpg)
