@@ -8,7 +8,7 @@ li {
     width: 10rem;
     margin: 0.5rem 0.2rem;
     border-style: solid;
-    border-radius: 0.5 rem;
+    border-radius: 0.8rem;
     list-style: none;
     display:inline-flexbox;
     cursor:context-menu;
@@ -90,15 +90,7 @@ body {
     left: 10px;
   }
   
-  .feedback {
-    font-style: italic;
-    font-size: 120%;
-    margin-top: 20px;
-    padding-top: 10px;
-    color: gray;
-    border-top: 2px solid #ccc;
-  }
-  
+
   .timer {
     position: absolute;
     top: 10px;

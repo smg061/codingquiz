@@ -15,8 +15,6 @@ var questionNum = 0;
 var timer;
 var seconds;
 var score;
-
-
 var questions = [question1, question2, question3, question4, question5];
 
 // function that starts when the quiz starts
@@ -31,7 +29,7 @@ function main()
 }
 
 
-// set any element class to hide
+// set any element class to hide -> element is hidden
 function hideElements(inputEl)
 {
     inputEl.setAttribute("class","hide");
@@ -73,10 +71,15 @@ function displayOptions()
 function showNextQuestion()
 {
     // display next questions as long as the question index is valid
-    if (questionNum <= questions.length - 1)
+    if (questionNum < questions.length - 1)
     {
         questionNum +=1;
         displayQuestion();
+    }
+    // else display endscreen
+    else 
+    {
+        displayEndScreen();
     }
 
 }
@@ -117,6 +120,33 @@ function startTimer() {
 
     
   };
+  // this function handles the event listener for the question choices
+  function handleChoices(event)
+  {
+      var element = event.target;
+      // target li elements i.e. the choices
+      if (element.matches("li"))
+      {
+          if (questionNum <= questions.length - 1)
+          {
+              // if the clicked element's text content == the correct answer
+  
+              if (element.textContent == questions[questionNum].correctAnswer) 
+              {
+                  questionFeedback.textContent ="Correct!";
+                  questionFeedback.setAttribute("style", "color: green")
+              }
+              // else the answer is incorrect; subtract 10 seconds
+              else 
+              {
+                  questionFeedback.textContent = "Incorrect!";
+                  questionFeedback.setAttribute("style", "color: red")
+                  seconds -= 10;
+              }
+              showNextQuestion();
+          }
+      }
+  }
 
 function handleFormSubmit(event) {
     event.preventDefault();
@@ -150,17 +180,13 @@ function handleFormSubmit(event) {
     {
         alert("Please enter your initials");
     } 
-  
 
   };
-
 // stores the current sessions's scores to local storage
   function storeScores()
   {
     localStorage.setItem("scores", JSON.stringify(scores));
-
   }
-
 // loads the locally stored scores into the scores array
   function loadScores()
   {
@@ -172,51 +198,7 @@ function handleFormSubmit(event) {
       
   }
 
-
 startButtonEl.addEventListener("click", main);
-
-questionEl.addEventListener("click", (event)=>
-{
-
-    event.stopPropagation();
-    var element = event.target;
-    if (element.matches("li"))
-    {
-        if (questionNum < questions.length - 1)
-        {
-
-            // if the clicked element's text content == the correct answer
-
-            if (element.textContent == questions[questionNum].correctAnswer) 
-            {
-                questionFeedback.textContent ="Correct!";
-                questionFeedback.setAttribute("style", "color: green")
-                    console.log("correct answer");
-            }
-            // else the answer is incorrect; subtract 10 seconds
-            else 
-            {
-                questionFeedback.textContent = "Incorrect!";
-                questionFeedback.setAttribute("style", "color: red")
-
-                console.log("bzzt wrongo");
-                seconds -= 10;
-            }
-
-            showNextQuestion();
-        }
-
-        else 
-        {
-            displayEndScreen();
-
-        }
-
-
-    }
-
-})
-
+questionEl.addEventListener("click", handleChoices)
 document.querySelector("#submit").addEventListener("click", handleFormSubmit)
-
 loadScores();

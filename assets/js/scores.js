@@ -4,6 +4,7 @@ clearButton = document.getElementById("clear");
 scores = JSON.parse(localStorage.getItem("scores"));
 
 
+
 function showScores() {
     for (let score of scores)
     {
