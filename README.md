@@ -16,3 +16,4 @@ When the start button is pressed, a timer starts counting down to the end of the
 Through local storage, high scores are recorded and displayed on the [highscores page](https://smg061.github.io/codingquiz/highscores.html)
 
 
+
