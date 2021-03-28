@@ -8,7 +8,7 @@ class question {
 }
 
 var question1 = new question(
-    "Which of the following is not primitive types in Javascript",
+    "Which of the following is not a primitive type in Javascript",
     ["Boolean", "String", "Class", "Number"], 
     "Class");
 
