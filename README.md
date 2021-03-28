@@ -13,7 +13,11 @@ When the start button is pressed, a timer starts counting down to the end of the
 
 ### High Score storage and retrieval
 
-Through local storage, high scores are recorded and displayed on the [highscores page](https://smg061.github.io/codingquiz/highscores.html)
+Through local storage, scores and the user's initials are recorded and displayed on the [highscores page](https://smg061.github.io/codingquiz/highscores.html)
+
+[!img]()
 
 
+## Final Look
 
+[!img]()
