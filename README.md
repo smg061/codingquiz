@@ -7,6 +7,8 @@ coding quiz. The app can be accessed through this [link](https://smg061.github.i
 ### Dynamic HTML
 This web app shifts and changes through the user's interaction. After clicking the start button, the start screen becomes hidden and the first question is displayed. Clicking on a question's answer provides feedback to the user and displays.
 
+[!img](https://raw.githubusercontent.com/smg061/codingquiz/main/assets/codingquiz_feedback.jpg)
+
 ### Timer
 When the start button is pressed, a timer starts counting down to the end of the quiz. After each wrong answer, -10 seconds ge subtracted from the remaining time.
 
