@@ -1,7 +1,7 @@
 
 OlEl = document.getElementById("highscores")
 clearButton = document.getElementById("clear");
-highScores = JSON.parse(localStorage.getItem("scores"));
+var highScores = JSON.parse(localStorage.getItem("scores"));
 
 // sort the highscores
 highScores.sort(function(a, b) {
